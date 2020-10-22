@@ -14,10 +14,11 @@
     <h1>Update Form</h1>
 
     <form action="update.php" method="POST">
+		<input type="hidden" name="id" value="<?php echo $id = $_GET['id']?>">
 		<input type="text" name="To_Do" placeholder="To Do"><br>
 		<input type="text" name="Description" placeholder="Description"><br>
         <input type="date" name="Deadline"><br>
-        <button type="submit" name="id" value="<?php echo $id = $_GET['id']?>">Update Entry</button>
+        <button type="submit" name="submit">Update Entry</button>
 
     </form>
     <br>
