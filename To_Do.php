@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html>
+<?php
+	$conn = require_once 'SQL_Connect.php';	
+	
+	$Name = mysqli_real_escape_string($conn,$_POST['To_Do']);
+	$Description = mysqli_real_escape_string($conn, $_POST['Description']);
+	$Deadline = mysqli_real_escape_string($conn, $_POST['Deadline']);
 
-<body>
-<?php include "index.php";?><br>
+	$insert = "INSERT INTO `to do`(Name, Description, Deadline) VALUES ('$Name', '$Description', '$Deadline');";
+	
+	
+	$result = $conn->query($insert);
+	
+//	if ($result !== false){
+	//	echo "Success!";
+	//} else {
+		//echo "Failed!";
+		//var_dump($result);
+		//var_dump($conn);
+		//var_dump($insert);	
+//	}
+	
+	header ("Location: index.php");
+?>
 
-This is what you have to do: <strong><?php echo $_POST["To_Do"]; ?></strong><br>
 
-To be completed by: <strong><?php echo $_POST["Deadline"]; ?></strong><br>
-
-Notes: <strong><?php echo $_POST["Note"]; ?></strong><br>
-
-</body>
-</html>

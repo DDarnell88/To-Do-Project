@@ -1,8 +1,3 @@
-<?php
-//$data = require_once('SQL_Connect.php');
-//var_dump($data);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +11,23 @@
 
 <body>
 <div class="container">
-    <h1>PHP TO-DO List</h1>
+    <h1>Update Form</h1>
 
-    <form action="To_Do.php" method="post">
-        <input type="text" name="To_Do" placeholder="To Do"><br>
+    <form action="update.php" method="POST">
+		<input type="hidden" name="id" value="<?php echo $id = $_GET['id']?>">
+		<input type="text" name="To_Do" placeholder="To Do"><br>
 		<input type="text" name="Description" placeholder="Description"><br>
         <input type="date" name="Deadline"><br>
-		
-        <button type="submit" name="submit">Create Entry</button>
+        <button type="submit" name="submit">Update Entry</button>
 
     </form>
     <br>
     <?php
-    $conn = require_once 'SQL_Connect.php';
-    $query = "SELECT * FROM `to do`";
+	$conn = require_once 'SQL_Connect.php';
+
+    $query = "SELECT * FROM `to do`WHERE ID='".$id."'";
+	//var_dump($id); 
+	//die;
     $result = $conn->query($query);
 
     ?>
