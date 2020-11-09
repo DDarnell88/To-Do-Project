@@ -6,27 +6,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <title>PHP TO-DO List</title>
+	<script src="jquery-3.5.1.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="formHandle.js"></script>
 </head>
 
 <body>
 <div class="container">
     <h1>PHP TO-DO List</h1>
 
-    <form action="To_Do.php" method="post">
+    <form id="form" action="To_Do.php" method="post">
         <input type="text" name="To_Do" placeholder="To Do"><br>
 		<input type="text" name="Description" placeholder="Description"><br>
         <input type="date" name="Deadline"><br>
 		
+	
         <button type="submit" name="submit">Create Entry</button>
-
+	
     </form>
-    <br>
+	<div id="result"></div>
+	<br>
     <?php
     $conn = require_once 'SQL_Connect.php';
     $query = "SELECT * FROM `to do`";
@@ -73,3 +79,4 @@
 </body>
 
 </html>
+
