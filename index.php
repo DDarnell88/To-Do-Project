@@ -1,8 +1,3 @@
-<?php
-//$data = require_once('SQL_Connect.php');
-//var_dump($data);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +8,8 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <title>PHP TO-DO List</title>
-	<script src="jquery-3.5.1.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="formHandle.js"></script>
 </head>
 
@@ -28,10 +23,9 @@
         <input type="date" name="Deadline"><br>
 		
 	
-        <button type="submit" name="submit">Create Entry</button>
+        <button id="submit" type="submit" name="submit">Create Entry</button>
 	
     </form>
-	<div id="result"></div>
 	<br>
     <?php
     $conn = require_once 'SQL_Connect.php';
@@ -39,7 +33,7 @@
     $result = $conn->query($query);
 
     ?>
-    <div class="table-responsive">
+    <div id="result" class="table-responsive">
         <table class="table table-dark">
             <thead>
             <tr>
@@ -79,4 +73,3 @@
 </body>
 
 </html>
-
