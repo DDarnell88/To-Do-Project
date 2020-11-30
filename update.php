@@ -13,16 +13,17 @@ $id = $_POST['id'];
 	$Name = mysqli_real_escape_string($conn,$_POST['To_Do']);
 	$Description = mysqli_real_escape_string($conn, $_POST['Description']);
 	$Deadline = mysqli_real_escape_string($conn, $_POST['Deadline']);
-	$headings = array("Name", "Description", "Deadline");
-	$fields = array($Name, $Description, $Deadline);
+	//$headings = array("Name", "Description", "Deadline");
+	//$fields = array($Name, $Description, $Deadline);
+	$cols = array("Name" => $Name, "Description" => $Description, "Deadline" => $Deadline);
 	$semaphore = false;
 	$update = "UPDATE`to do` SET ";
 	
 	
 	
-	foreach (array_combine($headings, $fields) as $heading => $field) {
-		if (isset($field) and !empty($field)) { 
-			$update .= $heading . " = '$field'";
+	foreach ($cols as $key => $value) {
+		if (isset($value) && !empty($value)) { 
+			$update .= $key . " = '$value'";
 			$semaphore = true;
 	
 		}
